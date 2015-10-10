@@ -46,7 +46,6 @@ PRODUCT_PACKAGES := \
     libhuaweigeneric-ril \
     lights.default \
     make_ext4fs \
-    parted \
     powerbtnd \
     scp \
     sensors.hsb \
@@ -76,6 +75,5 @@ PRODUCT_PACKAGES += \
 
 # Third party apps
 PRODUCT_PACKAGES += \
-    CMFileManager \
     Superuser \
     TSCalibration2 \

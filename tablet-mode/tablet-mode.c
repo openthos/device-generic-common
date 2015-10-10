@@ -16,6 +16,7 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <dirent.h>
+#include <string.h>
 #include <cutils/log.h>
 #include <linux/input.h>
 #include <linux/uinput.h>
