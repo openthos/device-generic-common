@@ -54,6 +54,7 @@ PRODUCT_PACKAGES := \
     sshd \
     su \
     tablet-mode \
+    v86d \
     wacom-input \
 
 PRODUCT_PACKAGES += \
