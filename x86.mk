@@ -21,6 +21,9 @@
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.com.android.dateformat=MM-dd-yyyy \
 
+$(call inherit-product,$(LOCAL_PATH)/device.mk)
+$(call inherit-product,$(LOCAL_PATH)/packages.mk)
+
 # Get a list of languages.
 $(call inherit-product,$(SRC_TARGET_DIR)/product/locales_full.mk)
 
@@ -29,6 +32,3 @@ $(call inherit-product,$(SRC_TARGET_DIR)/product/generic.mk)
 
 # Get some sounds
 $(call inherit-product-if-exists,frameworks/base/data/sounds/AudioPackage6.mk)
-
-$(call inherit-product,$(LOCAL_PATH)/device.mk)
-$(call inherit-product,$(LOCAL_PATH)/packages.mk)

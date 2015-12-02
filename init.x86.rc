@@ -19,10 +19,6 @@ on init
     # Backward compatibility
     symlink system/lib /lib
 
-    # device information
-    setprop ro.product.manufacturer $[/sys/class/dmi/id/sys_vendor]
-    setprop ro.product.model $[/sys/class/dmi/id/product_name]
-
     exec -- /system/bin/logwrapper /system/bin/sh /system/etc/init.sh
 
 on fs
@@ -143,3 +139,6 @@ on property:persist.sys.nativebridge=1
 
 on property:persist.sys.nativebridge=0
     stop nativebridge
+
+on property:debug.egl.hw=0
+    setprop ro.kernel.qemu 1

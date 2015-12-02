@@ -24,9 +24,9 @@ while [ ! -s $dest_dir/libhoudini.so ]; do
 		sleep 10
 	done
 	if [ -z "$1" ]; then
-		[ "`uname -m`" = "x86_64" ] && url=http://goo.gl/Xl1str || url=http://goo.gl/PA2qZ7
+		[ "`uname -m`" = "x86_64" ] && url=http://goo.gl/Knnmyl || url=http://goo.gl/JsoX2C
 	else
-		url=http://goo.gl/L00S7l
+		url=http://goo.gl/n6KtQa
 	fi
 	wget $url -cO houdini.tgz &&
 		bzcat houdini.tgz | tar xvf - -C $dest_dir && rm -f houdini.tgz && break
