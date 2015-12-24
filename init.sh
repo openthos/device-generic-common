@@ -120,6 +120,7 @@ function init_hal_gralloc()
 		0*inteldrmfb|0*radeondrmfb|0*nouveaufb|0*svgadrmfb)
 			set_property ro.hardware.gralloc drm
 			set_drm_mode
+			[ -n "$DEBUG" ] && set_property debug.egl.trace error
 			;;
 		"")
 			init_uvesafb
