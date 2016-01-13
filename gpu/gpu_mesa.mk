@@ -10,6 +10,7 @@
 
 PRODUCT_PACKAGES := \
     gralloc.drm     \
+    hwcomposer.drm  \
     libGLES_mesa
 
 PRODUCT_PROPERTY_OVERRIDES := \
