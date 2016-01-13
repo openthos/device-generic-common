@@ -111,13 +111,29 @@ function init_uvesafb()
 			;;
 	esac
 
+    case "$MANUFACTURER" in
+        QEMU*)
+            UVESA_MODE=${UVESA_MODE:-1024x768}
+            ;;
+		*)
+			;;
+	esac
+	
 	modprobe uvesafb mode_option=${UVESA_MODE:-800x600}-16 ${UVESA_OPTION:-mtrr=3 scroll=redraw}
 }
 
 function init_hal_gralloc()
 {
+    case "$MANUFACTURER" in
+        QEMU*)
+            modprobe virtio-gpu
+            ;;
+		*)
+			;;
+	esac
+	            
 	case "$(cat /proc/fb | head -1)" in
-		0*inteldrmfb|0*radeondrmfb|0*nouveaufb|0*svgadrmfb)
+		0*inteldrmfb|0*radeondrmfb|0*nouveaufb|0*svgadrmfb|0*virtiodrmfb)
 			set_property ro.hardware.gralloc drm
 			set_drm_mode
 			[ -n "$DEBUG" ] && set_property debug.egl.trace error
@@ -395,6 +411,7 @@ PATH=/sbin:/system/bin:/system/xbin
 DMIPATH=/sys/class/dmi/id
 BOARD=$(cat $DMIPATH/board_name)
 PRODUCT=$(cat $DMIPATH/product_name)
+MANUFACTURER=$(cat $DMIPATH/sys_vendor)
 
 # import cmdline variables
 for c in `cat /proc/cmdline`; do
